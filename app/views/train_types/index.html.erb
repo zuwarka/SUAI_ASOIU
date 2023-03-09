@@ -1,0 +1,24 @@
+<h1>Table of services</h1>
+
+<%#= link_to "Add new room", new_admin_room_path %>
+<style>
+    table, th, td {
+        border: 2px solid white;
+    }
+
+    th, td {
+        background-color: #DCDCDC;
+    }
+</style>
+<table class="table">
+  <tr>
+    <th scope="col">ID Service</th>
+    <th scope="col">Name of service</th>
+  </tr>
+  <% @train_types.each do |type| %>
+    <tr>
+      <td><%= type.id %></td>
+      <td><%= type.name_train_type %></td>
+    </tr>
+  <% end %>
+</table>

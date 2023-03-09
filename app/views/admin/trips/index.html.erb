@@ -1,0 +1,51 @@
+<h1>Table of trips</h1>
+<h3>Click on number of trip to see more information about trip</h3>
+<style>
+    table, th, td {
+        border: 2px solid white;
+    }
+
+    th, td {
+        background-color: #DCDCDC;
+    }
+</style>
+
+<form class="form-inline my-2 my-lg-0" action="/search">
+  <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search trip number" aria-label="Search">
+  <br><button class="btn btn-online-success my-2 my-sm-0" type="submit">Search</button><br><br>
+</form>
+
+<div class="ui-select selBox">
+  <%= form_tag(trips_path, method: 'get') do %>
+    <select style="width: 210px; height: 35px;" name="q" class="form-control">
+      <option value="None">-Select-</option>
+      <option name="trip" value="trip">Order by number of trip</option>
+      <option value="">Order by created_at</option>
+    </select>
+    <button class="btn btn-online-success my-2 my-sm-0" type="submit">Search</button>
+  <% end %>
+  <br>
+</div>
+
+<table class="table">
+  <tr>
+    <th scope="col">ID Trip</th>
+    <th scope="col">Number of trip</th>
+    <th scope="col">Arrival time</th>
+    <th scope="col">Departure time</th>
+    <th scope="col">Class of service</th>
+    <th scope="col">Class of train type</th>
+    <th scope="col">Name of carrier company</th>
+  </tr>
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.id %></td>
+      <td><%= link_to trip.number_trip, trip %></td>
+      <td><%= trip.arrival_time %></td>
+      <td><%= trip.departure_time %></td>
+      <td><%= trip.name_service_type %></td>
+      <td><%= trip.name_train_type %></td>
+      <td><%= trip.name_company %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,13 @@
+<h3>Table of service types</h3>
+<table class="table">
+  <tr>
+    <th scope="col">ID Service</th>
+    <th scope="col">Type</th>
+  </tr>
+  <% @service_types.each do |service_type| %>
+    <tr>
+      <td><%= service_type.id %></td>
+      <td><%= service_type.name_service_type %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,50 @@
+<h1>Search Results</h1>
+<% if @trip.blank? %>
+<h3>There's no such trip for this number of trip</h3>
+<% else %>
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="well well-lg">
+        <div class="review-title">
+          <p>
+            <strong>Number of trip:</strong>
+            <%= @trip.number_trip %>
+          </p>
+        </div>
+        <div class="review-title">
+          <p>
+            <strong>Arrival:</strong>
+            <%= @trip.arrival_time %>
+          </p>
+        </div>
+        <div class="review-title">
+          <p>
+            <strong>Departure:</strong>
+            <%= @trip.departure_time %>
+          </p>
+        </div>
+        <div class="review-title">
+          <p>
+            <strong>Service type:</strong>
+            <%= @trip.name_service_type %>
+          </p>
+        </div>
+        <div class="review-title">
+          <p>
+            <strong>Train type:</strong>
+            <%= @trip.name_train_type %>
+          </p>
+        </div>
+        <div class="review-title">
+          <p>
+            <strong>Company:</strong>
+            <%= @trip.name_company %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div>
+  <%= link_to "Back", trips_path %>
+</div>

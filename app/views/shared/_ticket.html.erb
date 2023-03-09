@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-xs-8">
+    <div class="well well-lg">
+      <div class="review-title">
+        <p>
+          <strong>Number of trip:</strong>
+          <%= @ticket.trip.number_trip %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>Arrival:</strong>
+          <%= @ticket.trip.arrival_time %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>Departure:</strong>
+          <%= @ticket.trip.departure_time %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>Company:</strong>
+          <%= @ticket.trip.company.name_company %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>First name of passenger:</strong>
+          <%= @ticket.passenger.first_name %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>Last name of passenger:</strong>
+          <%= @ticket.passenger.last_name %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>Passport ID:</strong>
+          <%= @ticket.passenger.passport_id %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>Passenger's citizenship:</strong>
+          <%= @ticket.passenger.citizenship %>
+        </p>
+      </div>
+      <div class="review-title">
+        <p>
+          <strong>Where ticket was bought:</strong>
+          <%= @ticket.employee.name_station %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

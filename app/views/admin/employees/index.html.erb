@@ -1,0 +1,30 @@
+<h1>Table of employees</h1>
+
+<%#= link_to "Add new room", new_admin_room_path %>
+<style>
+    table, th, td {
+        border: 2px solid white;
+    }
+
+    th, td {
+        background-color: #DCDCDC;
+    }
+</style>
+<table class="table">
+  <tr>
+    <th scope="col">ID Employee</th>
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">Station</th>
+    <th scope="col">Position</th>
+  </tr>
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%= employee.id %></td>
+      <td><%= employee.first_name %></td>
+      <td><%= employee.last_name %></td>
+      <td><%= employee.name_station %></td>
+      <td><%= employee.name_position %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,56 @@
+<h1>Table of companies and services types for trains</h1>
+
+<style>
+    table, th, td {
+        border: 2px solid white;
+    }
+
+    th, td {
+        background-color: #DCDCDC;
+    }
+</style>
+
+<div align="center">
+  <h3>Table of companies</h3>
+  <table class="table">
+    <tr>
+      <th scope="col">ID Company</th>
+      <th scope="col">Name of company</th>
+    </tr>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.id %></td>
+        <td><%= company.name_company %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+  <h3>Table of service types</h3>
+  <table class="table">
+    <tr>
+      <th scope="col">ID Service</th>
+      <th scope="col">Type</th>
+    </tr>
+    <% @service_types.each do |service_type| %>
+      <tr>
+        <td><%= service_type.id %></td>
+        <td><%= service_type.name_service_type %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+  <h3>Table of train types</h3>
+  <table class="table">
+    <tr>
+      <th scope="col">ID Types</th>
+      <th scope="col">Type</th>
+    </tr>
+    <% @train_types.each do |train_type| %>
+      <tr>
+        <td><%= train_type.id %></td>
+        <td><%= train_type.name_train_type %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+</div>

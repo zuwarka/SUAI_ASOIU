@@ -1,0 +1,32 @@
+<h1>Table of passengers</h1>
+
+<%#= link_to "Add new room", new_admin_room_path %>
+<style>
+    table, th, td {
+        border: 2px solid white;
+    }
+
+    th, td {
+        background-color: #DCDCDC;
+    }
+</style>
+<table class="table">
+  <tr>
+    <th scope="col">ID Passenger</th>
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">Birthdate</th>
+    <th scope="col">Passport ID</th>
+    <th scope="col">Citizenship</th>
+  </tr>
+  <% @passengers.each do |passenger| %>
+    <tr>
+      <td><%= passenger.id %></td>
+      <td><%= passenger.first_name %></td>
+      <td><%= passenger.last_name %></td>
+      <td><%= passenger.birth_date %></td>
+      <td><%= passenger.passport_id %></td>
+      <td><%= passenger.citizenship %></td>
+    </tr>
+  <% end %>
+</table>
