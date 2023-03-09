@@ -1,2 +1,7 @@
-<h1>Passengers#index</h1>
-<p>Find me in app/views/passengers/index.html.erb</p>
+<h1>My passengers</h1>
+<%= render "form", passenger: @passenger %>
+<% @passengers.each do |passenger| %>
+  <div class="well well-lg">
+    <%= render passenger %>
+  </div>
+<% end %>

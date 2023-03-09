@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for(@ticket, :html => {class: "form-horizontal", role: "form"}) do |form| %>
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :trip_id %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.text_field :trip_id, class: "form-control", autofocus: true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :passenger_id %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.text_field :passenger_id, rows: 10, class: "form-control", autofocus: true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :employee_id %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.text_area :employee_id, rows: 10, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-4">
+          <%= form.submit class: 'btn btn-primary btn-large' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

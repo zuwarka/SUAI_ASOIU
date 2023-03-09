@@ -1,2 +1,6 @@
-<h1>Passengers#create</h1>
-<p>Find me in app/views/passengers/create.html.erb</p>
+<h1>New ticket</h1>
+<%= render "form", passenger: @passenger %>
+<br>
+<div>
+  <%= link_to "Back to other tickets", tickets_path %>
+</div>

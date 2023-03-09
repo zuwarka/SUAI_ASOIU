@@ -3,7 +3,7 @@ class Ticket < ApplicationRecord
   belongs_to :trip
   belongs_to :employee
 
-  # delegate :first_name, to: :passenger, prefix: :passenger
-  # delegate :last_name, to: :passenger, prefix: :passenger
-  # delegate :passport_id, :citizenship, to: :passenger
+  has_one :user, through: :passenger
+
+  scope :by_user, ->(user) { joins(passenger: :user).where(user: { id: user.id }) }
 end
