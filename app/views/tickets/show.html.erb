@@ -1,4 +1,4 @@
-<%= render 'shared/ticket' %>
+<%= render 'tickets/ticket', ticket: @ticket %>
 <div>
-  <%= link_to "Back", tickets_path %>
+  <%= link_to "Back", tickets_path, class: "btn btn-xs btn-primary" %>
 </div>

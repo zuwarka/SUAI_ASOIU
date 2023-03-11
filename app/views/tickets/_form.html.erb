@@ -6,7 +6,7 @@
           <%= form.label :trip_id %>
         </div>
         <div class="col-sm-3">
-          <%= form.text_field :trip_id, class: "form-control", autofocus: true %>
+          <%= form.number_field :trip_id, class: "form-control", autofocus: true %>
         </div>
       </div>
 
@@ -15,16 +15,7 @@
           <%= form.label :passenger_id %>
         </div>
         <div class="col-sm-3">
-          <%= form.text_field :passenger_id, rows: 10, class: "form-control", autofocus: true %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="control-label col-sm-1">
-          <%= form.label :employee_id %>
-        </div>
-        <div class="col-sm-3">
-          <%= form.text_area :employee_id, rows: 10, class: "form-control" %>
+          <%= form.number_field :passenger_id, class: "form-control", autofocus: true %>
         </div>
       </div>
 
@@ -36,3 +27,60 @@
     <% end %>
   </div>
 </div>
+
+<h1>Table of trips</h1>
+<h3>Click on number of trip to see more information about trip</h3>
+<style>
+    table, th, td {
+        border: 2px solid white;
+    }
+
+    th, td {
+        background-color: #DCDCDC;
+    }
+</style>
+
+<table class="table">
+  <tr>
+    <th scope="col">ID Trip</th>
+    <th scope="col">Number of trip</th>
+    <th scope="col">Arrival time</th>
+    <th scope="col">Departure time</th>
+    <th scope="col">Class of service</th>
+    <th scope="col">Class of train type</th>
+    <th scope="col">Name of carrier company</th>
+  </tr>
+  <% Trip.all.each do |trip| %>
+    <tr>
+      <td><%= trip.id %></td>
+      <td><%= link_to trip.number_trip, trip %></td>
+      <td><%= trip.arrival_time %></td>
+      <td><%= trip.departure_time %></td>
+      <td><%= trip.name_service_type %></td>
+      <td><%= trip.name_train_type %></td>
+      <td><%= trip.name_company %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table class="table">
+  <tr>
+    <th scope="col">Passenger ID</th>
+    <th scope="col">Passenger first name</th>
+    <th scope="col">Passenger last name</th>
+    <th scope="col">Birthdate</th>
+    <th scope="col">Passport ID</th>
+    <th scope="col">Citizenship</th>
+  </tr>
+  <% @passenger_by_user.each do |passenger| %>
+    <tr>
+      <td><%= passenger.id %></td>
+      <td><%= link_to passenger.first_name, passenger %></td>
+      <td><%= passenger.last_name %></td>
+      <td><%= passenger.birth_date %></td>
+      <td><%= passenger.passport_id %></td>
+      <td><%= passenger.citizenship %></td>
+    </tr>
+  <% end %>
+</table>
+

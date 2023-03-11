@@ -1,7 +1,7 @@
 class Passenger < ApplicationRecord
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
 
   belongs_to :user
 
-  scope :by_user, ->(user) { joins(:user).where(user_id: user.id) }
+  scope :by_user, ->(user) { where(user_id: user.id) }
 end

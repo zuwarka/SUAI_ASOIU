@@ -1,31 +1,39 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_ticket, only: %i[edit update show destroy]
 
   def index
     @tickets = Ticket.by_user(current_user)
   end
 
-  def show
-    @ticket = Ticket.by_user(current_user).where(id: params[:id]).first
-  end
+  def show; end
 
   def new
-    @ticket = Ticket.new
+    @employee_ticket = Employee.all.pluck(:id).to_a.sample
+    @passenger_by_user = Passenger.all.by_user(current_user)
+    @ticket = Ticket.new(employee_id: @employee_ticket)
+  end
+
+  def edit
+    @passenger_by_user = Passenger.all.by_user(current_user)
+
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
-
-    respond_to do |f|
-      if @ticket.save
-        f.html { redirect_to ticket_url(@ticket) }
-      else
-        f.html { render :new }
-      end
+    @ticket.employee_id ||= Employee.all.pluck(:id).to_a.sample
+    @passenger_by_user = Passenger.all.by_user(current_user)
+    if @ticket.save
+      p @ticket
+      redirect_to ticket_url(@ticket)
+    else
+      render :new
     end
   end
 
   def update
+    @passenger_by_user = Passenger.all.by_user(current_user)
+
     respond_to do |f|
       if @ticket.update(ticket_params)
         f.html { redirect_to ticket_url(@ticket) }
@@ -36,6 +44,8 @@ class TicketsController < ApplicationController
   end
 
   def destroy
+    @passenger_by_user = Passenger.all.by_user(current_user)
+
     @ticket.destroy
 
     respond_to do |f|
@@ -46,6 +56,10 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:passenger_id, :employee_id, :trip_id)
+    params.require(:ticket).permit(:passenger_id, :trip_id, :employee_id)
+  end
+
+  def set_ticket
+    @ticket = Ticket.by_user(current_user).where(id: params[:id]).first
   end
 end

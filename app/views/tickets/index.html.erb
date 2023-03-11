@@ -1,6 +1,4 @@
 <h1>My tickets</h1>
-
-<%#= link_to "Add new room", new_admin_room_path %>
 <style>
     table, th, td {
         border: 2px solid white;
@@ -10,6 +8,9 @@
         background-color: #DCDCDC;
     }
 </style>
+
+<%= link_to "Buy a ticket!", new_ticket_path %>
+
 <table class="table">
   <tr>
     <th scope="col">Number of trip</th>
@@ -24,7 +25,7 @@
   </tr>
   <% @tickets.each do |ticket| %>
     <tr>
-      <td><%= ticket.trip.number_trip %></td>
+      <td><%= link_to ticket.trip.number_trip, ticket %></td>
       <td><%= ticket.trip.arrival_time %></td>
       <td><%= ticket.trip.departure_time %></td>
       <td><%= ticket.trip.company.name_company %></td>
