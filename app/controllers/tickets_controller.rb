@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: %i[edit update show destroy]
 
   def index
-    @tickets = Ticket.by_user(current_user)
+    @tickets = Ticket.by_user(current_user).order(created_at: :desc)
   end
 
   def show; end

@@ -16,7 +16,7 @@
 </form>
 
 <div class="ui-select selBox">
-  <%= form_tag(trips_path, method: 'get') do %>
+  <%= form_tag(admin_trips_path, method: 'get') do %>
     <select style="width: 210px; height: 35px;" name="q" class="form-control">
       <option value="None">-Select-</option>
       <option name="trip" value="trip">Order by number of trip</option>
@@ -40,7 +40,7 @@
   <% @trips.each do |trip| %>
     <tr>
       <td><%= trip.id %></td>
-      <td><%= link_to trip.number_trip, trip %></td>
+      <td><%= link_to trip.number_trip, admin_trip_path(trip) %></td>
       <td><%= trip.arrival_time %></td>
       <td><%= trip.departure_time %></td>
       <td><%= trip.name_service_type %></td>

@@ -1,4 +1,6 @@
-<%= render 'shared/passenger' %>
+<%= render 'admin/passengers/passenger', passenger: @passenger %>
 <div>
-  <%= link_to "Back", admin_passengers_path %>
+  <%= link_to "Back", admin_passengers_path, class: "btn btn-xs btn-primary" %>
+  <%= link_to "Edit", edit_admin_passenger_path(@passenger), class: "btn btn-xs btn-success" %>
+  <%= button_to "Delete", admin_passenger_path(@passenger), method: :delete, class: "btn btn-xs btn-danger" %>
 </div>

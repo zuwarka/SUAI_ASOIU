@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_with(model: [ :admin, @trip ], :html => {class: "form-horizontal", role: "form"}) do |form| %>
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :number_trip %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.number_field :number_trip, class: "form-control", autofocus: true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :arrival_time %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.text_field :arrival_time, rows: 10, class: "form-control", autofocus: true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :departure_time %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.text_field :departure_time, rows: 10, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :service_type_id %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.number_field :service_type_id, rows: 10, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :train_type_id %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.number_field :train_type_id, rows: 10, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-1">
+          <%= form.label :company_id %>
+        </div>
+        <div class="col-sm-3">
+          <%= form.number_field :company_id, rows: 10, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-4">
+          <%= form.submit class: 'btn btn-primary btn-large' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

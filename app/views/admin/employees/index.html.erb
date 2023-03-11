@@ -21,7 +21,7 @@
   <% @employees.each do |employee| %>
     <tr>
       <td><%= employee.id %></td>
-      <td><%= employee.first_name %></td>
+      <td><%= link_to employee.first_name, admin_employee_url(employee) %></td>
       <td><%= employee.last_name %></td>
       <td><%= employee.name_station %></td>
       <td><%= employee.name_position %></td>

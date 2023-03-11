@@ -1,4 +1,6 @@
-<%= render 'shared/employee' %>
+<%= render 'admin/employees/employee', employee: @employee %>
 <div>
-  <%= link_to "Back", admin_employees_path %>
+  <%= link_to "Back", admin_employees_path, class: "btn btn-xs btn-primary" %>
+  <%= link_to "Edit", edit_admin_employee_path(@employee), class: "btn btn-xs btn-success" %>
+  <%= button_to "Delete", admin_employee_path(@employee), method: :delete, class: "btn btn-xs btn-danger" %>
 </div>

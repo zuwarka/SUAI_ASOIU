@@ -1,4 +1,6 @@
-<%= render 'trips/trip' %>
+<%= render 'admin/trips/trip', trip: @trip %>
 <div>
-  <%= link_to "Back", trips_path %>
+  <%= link_to "Back", admin_trips_path, class: "btn btn-xs btn-primary" %>
+  <%= link_to "Edit", edit_admin_trip_path(@trip), class: "btn btn-xs btn-success" %>
+  <%= button_to "Delete", admin_trip_path(@trip), method: :delete, class: "btn btn-xs btn-danger" %>
 </div>

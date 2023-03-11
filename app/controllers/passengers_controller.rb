@@ -3,7 +3,7 @@ class PassengersController < ApplicationController
   before_action :set_passenger, only: %i[edit update show destroy]
 
   def index
-    @passengers = Passenger.all.by_user(current_user)
+    @passengers = Passenger.all.by_user(current_user).order(created_at: :desc)
   end
 
   def show; end

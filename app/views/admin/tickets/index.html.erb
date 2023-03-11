@@ -1,0 +1,37 @@
+<h1>All tickets</h1>
+<style>
+    table, th, td {
+        border: 2px solid white;
+    }
+
+    th, td {
+        background-color: #DCDCDC;
+    }
+</style>
+
+<table class="table">
+  <tr>
+    <th scope="col">Number of trip</th>
+    <th scope="col">Arrival time</th>
+    <th scope="col">Departure time</th>
+    <th scope="col">Carrier company</th>
+    <th scope="col">Passenger first name</th>
+    <th scope="col">Passenger last name</th>
+    <th scope="col">Passport ID</th>
+    <th scope="col">Citizenship</th>
+    <th scope="col">Where ticket was bought</th>
+  </tr>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= link_to ticket.trip.number_trip, admin_ticket_path(ticket) %></td>
+      <td><%= ticket.trip.arrival_time %></td>
+      <td><%= ticket.trip.departure_time %></td>
+      <td><%= ticket.trip.company.name_company %></td>
+      <td><%= ticket.passenger.first_name %></td>
+      <td><%= ticket.passenger.last_name %></td>
+      <td><%= ticket.passenger.passport_id %></td>
+      <td><%= ticket.passenger.citizenship %></td>
+      <td><%= ticket.employee.name_station %></td>
+    </tr>
+  <% end %>
+</table>

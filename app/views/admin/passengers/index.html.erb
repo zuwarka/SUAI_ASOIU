@@ -22,7 +22,7 @@
   <% @passengers.each do |passenger| %>
     <tr>
       <td><%= passenger.id %></td>
-      <td><%= passenger.first_name %></td>
+      <td><%= link_to passenger.first_name, admin_passenger_url(passenger) %></td>
       <td><%= passenger.last_name %></td>
       <td><%= passenger.birth_date %></td>
       <td><%= passenger.passport_id %></td>
